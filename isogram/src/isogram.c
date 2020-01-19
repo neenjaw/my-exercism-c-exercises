@@ -4,20 +4,13 @@ bool is_isogram(const char phrase[])
 {
   if (phrase == NULL) return false;
 
-  const char *alpha = ""
-    "abcdefghijklmnopqrstuvwxyz"
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
   char ch, used[26] = {0};
-
   while ((ch = *phrase++) != '\0') {
-    const char *p;
-    int idx;
-
-    if ((p = strchr(alpha, ch)) == NULL)
+    if (!isalpha(ch))
       continue;
 
-    idx = (p - alpha) % 26;
+    ch = tolower(ch);
+    int idx = ch - 'a';
 
     if (used[idx])
       return false;
