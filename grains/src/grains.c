@@ -10,8 +10,8 @@ uint64_t square(uint8_t index)
 uint64_t total(void)
 {
   uint64_t total = 0;
-  uint64_t square = 1;
-  for (int i = 1; i <= 64; i++, square *= 2)
+  uint64_t square = FIRST_SQUARE_GRAIN_VALUE;
+  for (int i = BOARD_MIN; i <= BOARD_MAX; i++, square <<= 1)
   {
     total += square;
   }
