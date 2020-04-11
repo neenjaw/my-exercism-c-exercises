@@ -1,33 +1,19 @@
 #include "difference_of_squares.h"
 
+// This returns the sum of a series from 1..n multiplied by itself
 unsigned int square_of_sum(unsigned int number)
 {
-	unsigned int sum = 0;
-	for (unsigned int i = 1; i <= number; i++)
-	{
-		sum += i;
-	}
+  unsigned int sum = (number * (number + 1)) / 2;
 	return sum*sum;
 }
 
+// This returns the sum of a series from 1^2..n^2
 unsigned int sum_of_squares(unsigned int number)
 {
-	unsigned int sum = 0;
-	for (unsigned int i = 1; i <= number; i++)
-	{
-		sum += i*i;
-	}
-	return sum;
+	return (number * (number + 1) * (2 * number + 1)) / 6;
 }
 
 unsigned int difference_of_squares(unsigned int number)
 {
-	unsigned int sum = 0;
-	unsigned int sum_squares = 0;
-	for (unsigned int i = 1; i <= number; i++)
-	{
-		sum += i;
-		sum_squares += i*i;
-	}
-	return (sum*sum) - sum_squares;
+	return square_of_sum(number) - sum_of_squares(number);
 }
